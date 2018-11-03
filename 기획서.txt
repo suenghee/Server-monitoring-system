@@ -1,0 +1,19 @@
+main : OS, uptime, 시스템 사양, 간략 상태 표(cpu, memory, network 사용량 지수에따라 결정)
+
+Graph : cpu, memory, disk, network(adpater 별)
+
+control pannel : process(중지), service( 등록, 재시작, 중지, 시작) 각각 cpu, memory, disk, network 사용량
+
+process와 service창은 따로
+
+디자인은 작업 관리자 생각하면됨 바라는건 어두운 테마?
+
+모니터링 되는 서버는 agent 프로그램으로 모니터링 통합서버에 정보 전달 (1초 주기)udp
+모니터링 통합 서버는 server 프로그램으로 클라이언트 들에게 정보 전달 udp 
+클라이언트는 모니터링 통합서버에서 인증 과정(tcp) 거쳐서 자기가 모니터링 할 서버 데이터 수신
+control pannel 진입시 모니터링 되는 서버에 ssh기반 인증 후(tcp) process,service 컨트롤 가능
+
+우민, 승희 : 프론트 디자인
+준용 : server 프로그램
+지훈 : agent 프로그램 (통신 제외)
+성윤 : agent 프로그램 (통신), client 프로그램
